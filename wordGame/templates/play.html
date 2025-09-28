@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Guess The Word in 5 Guesses</h2>
+
+{% if not allowed_to_start %}
+    <p>You have already played 3 games today. Come back tomorrow!</p>
+{% else %}
+    {% if not active_game %}
+        <form method="post">
+            <button type="submit" name="start" value="1" class="btn">Start New Game</button>
+        </form>
+    {% else %}
+        <h3>What's The Word?</h3>
+        {% for g in guesses %}
+            <div class="guess-row">
+                {% for letter, color in g %}
+                    <div class="cell {{ color }}">{{ letter }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        
+        {% if not finished %}
+            <form method="post">
+                <input name="guess" maxlength="5" placeholder="Enter 5-letter word" required>
+                <button type="submit" class="btn">Submit Guess</button>
+            </form>
+        {% else %}
+            <p>{{ finished_msg }}</p>
+            <a href="{{ url_for('play') }}" class="btn">Start Next Game</a>
+        {% endif %}
+    {% endif %}
+{% endif %}
+{% endblock %}

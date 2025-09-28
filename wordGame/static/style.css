@@ -1,0 +1,145 @@
+/* General Body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* Container for content */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  text-align: center; /* Center all text inside container */
+}
+
+/* Main Title */
+h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+/* Navigation Bar */
+nav {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.card {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Guess grid */
+.guess-row {
+  display: flex;
+  justify-content: center; /* Center letters horizontally */
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.cell {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.green {
+  background: #6aaa64;
+  color: white;
+}
+.orange {
+  background: #c9b458;
+  color: white;
+}
+.grey {
+  background: #787c7e;
+  color: white;
+}
+
+/* Flash messages */
+.msg {
+  padding: 10px;
+  background: #e7f3ff;
+  border: 1px solid #cce1ff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.error {
+  color: #a94442;
+  background: #f2dede;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center; /* Center table text */
+}

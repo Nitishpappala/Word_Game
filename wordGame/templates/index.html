@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Welcome to the Guess Game!</h2>
+<p>
+    <a class="btn" href="{{ url_for('register') }}">Register</a> or 
+    <a class="btn" href="{{ url_for('login') }}">Login</a> to start playing.
+</p>
+{% endblock %}

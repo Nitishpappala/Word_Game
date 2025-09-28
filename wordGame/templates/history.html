@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>My Game History</h2>
+<div class="table-container">
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Word</th>
+        <th>Success</th>
+    </tr>
+    {% for g in games %}
+    <tr>
+        <td>{{ g[0] }}</td>
+        <td>{{ g[1] }}</td>
+        <td>{{ 'Yes' if g[2] else 'No' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

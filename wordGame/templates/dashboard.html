@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block body %}
+<h2>Dashboard</h2>
+
+{% if user.role != 'admin' %}
+<div class="card">
+  <h3>Today's Activity</h3>
+  <p>Games Played Today: <strong>{{ games_today }}</strong></p>
+</div>
+{% endif %}
+
+<div class="card">
+  <h3>Quick Actions</h3>
+  {% if user.role == 'admin' %}
+  <a href="{{ url_for('admin_reports') }}" class="btn">Daily Report</a>
+  <a href="{{ url_for('admin_reports') }}" class="btn">User Report</a>
+  {% else %}
+  <a href="{{ url_for('play') }}" class="btn">Start New Game</a>
+  <a href="{{ url_for('history') }}" class="btn">View History</a>
+  {% endif %}
+</div>
+
+{% endblock %}

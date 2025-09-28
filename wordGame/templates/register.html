@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Register</h2>
+<form method="post">
+    Username:<br>
+    <input name="username" value="{{ request.form.username if request.form.username else '' }}"><br>
+    
+    Password:<br>
+    <input type="password" name="password"><br>
+    
+    Role:<br>
+    <select name="role" onchange="document.getElementById('admin_code_div').style.display=this.value=='admin'?'block':'none';">
+        <option value="player" {% if request.form.role=='player' %}selected{% endif %}>Player</option>
+        <option value="admin" {% if request.form.role=='admin' %}selected{% endif %}>Admin</option>
+    </select><br>
+    
+    <div id="admin_code_div" style="display:{{'block' if request.form.role=='admin' else 'none'}};">
+        Admin Code:<br>
+        <input type="password" name="admin_code"><br>
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+</form>
+{% endblock %}

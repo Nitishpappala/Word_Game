@@ -1,0 +1,48 @@
+{% extends "layout.html" %} {% block body %}
+<h2>Admin Reports</h2>
+
+<div class="card">
+  <h3>Daily Report</h3>
+  <form method="post" action="{{ url_for('admin_daily_report') }}">
+    Date: <input name="date" placeholder="YYYY-MM-DD" required />
+    <button type="submit" class="btn">Run</button>
+  </form>
+  {% if daily %}
+  <p>
+    Date: {{ daily['date'] }}, Users Played: {{ daily['users'] }}, Total Games
+    Played: {{ daily['games'] }}, Correct Guesses: {{ daily['correct'] }}
+  </p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h3>User Report</h3>
+  <form method="post" action="{{ url_for('admin_user_report') }}">
+    Username: <input name="username" required />
+    <button type="submit" class="btn">Run</button>
+  </form>
+  {% if userreport %}
+  <p>User: {{ userreport['username'] }}</p>
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Games Played</th>
+        <th>Correct Guesses</th>
+        <th>Correctly Guessed</th>
+        <th>Wrongly Guessed</th>
+      </tr>
+      {% for row in userreport['rows'] %}
+      <tr>
+        <td>{{ row.date }}</td>
+        <td>{{ row.games }}</td>
+        <td>{{ row.correct }}</td>
+        <td>{{ row.correct_words | join(', ') }}</td>
+        <td>{{ row.wrong_words | join(', ') }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
